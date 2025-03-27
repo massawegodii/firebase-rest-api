@@ -42,20 +42,20 @@ app.post("/api/create", (req, res) => {
 });
 
 // // Read specific user detail
-// app.get("/api/userDetail/:id", (req, res) => {
-//   (async () => {
-//     try {
-//       const reqDoc = db.collection("userdetails").doc(req.params.id);
-//       let userDetail = await reqDoc.get();
-//       let response = userDetail.data();
+app.get("/api/get/:id", (req, res) => {
+  (async () => {
+    try {
+      const reqDoc = db.collection("userdetails").doc(req.params.id);
+      let userDetail = await reqDoc.get();
+      let response = userDetail.data();
 
-//       return res.status(200).send({ status: "Success", data: response });
-//     } catch (error) {
-//       console.log(error);
-//       res.status(500).send({ status: "Failed", msg: error });
-//     }
-//   })();
-// });
+      return res.status(200).send({ status: "Success", data: response });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({ status: "Failed", msg: error });
+    }
+  })();
+});
 
 // // read all user details
 // // get
