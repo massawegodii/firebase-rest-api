@@ -22,24 +22,23 @@ app.get("/", (req, res) => {
 });
 
 // create Endpoints
-// Post
-// app.post("/api/create", (req, res) => {
-//   (async () => {
-//     try {
-//       await db.collection("userdetails").doc(`/${Date.now()}/`).create({
-//         id: Date.now(),
-//         name: req.body.name,
-//         mobile: req.body.mobile,
-//         address: req.body.address,
-//       });
+app.post("/api/create", (req, res) => {
+  (async () => {
+    try {
+      await db.collection("userdetails").doc(`/${Date.now()}/`).create({
+        id: Date.now(),
+        name: req.body.name,
+        mobile: req.body.mobile,
+        address: req.body.address,
+      });
 
-//       return res.status(200).send({ status: "Success", msg: "Data Saved" });
-//     } catch (error) {
-//       console.log(error);
-//       res.status(500).send({ status: "Failed", msg: error });
-//     }
-//   })();
-// });
+      return res.status(200).send({ status: "Success", msg: "Data Saved Successfully" });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({ status: "Failed", msg: error });
+    }
+  })();
+});
 
 // // read specific user detail
 // // get
